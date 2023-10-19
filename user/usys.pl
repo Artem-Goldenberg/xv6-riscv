@@ -43,3 +43,5 @@ entry("createlock");
 entry("acquirelock");
 entry("releaselock");
 entry("deletelock");
+
+entry("vmprint");

@@ -28,3 +28,5 @@
 #define SYS_acquirelock 25
 #define SYS_releaselock 26
 #define SYS_deletelock 27
+
+#define SYS_vmprint 28

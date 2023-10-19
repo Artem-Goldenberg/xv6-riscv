@@ -32,6 +32,8 @@ int acquirelock(int);
 int releaselock(int);
 int deletelock(int);
 
+void vmprint(void);
+
 // ulib.c
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);

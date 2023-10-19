@@ -535,3 +535,9 @@ uint64 sys_deletelock(void) {
     deletelock(i);
     return 0;
 }
+
+uint64 sys_vmprint(void) {
+    struct proc *p = myproc();
+    vmprint(p->pagetable);
+    return 0;
+}

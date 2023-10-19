@@ -109,6 +109,8 @@ extern uint64 sys_acquirelock(void);
 extern uint64 sys_releaselock(void);
 extern uint64 sys_deletelock(void);
 
+extern uint64 sys_vmprint(void);
+
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
 static uint64 (*syscalls[])(void) = {
@@ -138,7 +140,8 @@ static uint64 (*syscalls[])(void) = {
 [SYS_createlock] sys_createlock,
 [SYS_acquirelock] sys_acquirelock,
 [SYS_releaselock] sys_releaselock,
-[SYS_deletelock] sys_deletelock
+[SYS_deletelock] sys_deletelock,
+[SYS_vmprint]    sys_vmprint
 };
 
 static const char* names[] = {
@@ -168,7 +171,8 @@ static const char* names[] = {
 [SYS_createlock] "sys_createlock",
 [SYS_acquirelock] "sys_acquirelock",
 [SYS_releaselock] "sys_releaselock",
-[SYS_deletelock] "sys_deletelock"
+[SYS_deletelock] "sys_deletelock",
+[SYS_vmprint] "sys_vmprint"
 };
 
 void

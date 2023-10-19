@@ -437,3 +437,28 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
     return -1;
   }
 }
+
+void vmlayerprint(pagetable_t page, int level) {
+    for (int i = 0; i < 512; ++i) {
+        pte_t cell = page[i];
+        if (cell & PTE_V) {
+            for (int j = level; j < 3; ++j) printf(".. ");
+            pagetable_t table = (pagetable_t)PTE2PA(cell);
+            printf("[%d] = %p -> %p ", i, cell, table);
+
+            char flags[8] = "VRWXUGAD";
+            for (int j = 7; j >= 0; --j)
+                consputc((cell >> j) & 1 ? flags[j] : '_');
+
+            printf("\n");
+            if (level) vmlayerprint(table, level - 1);
+        }
+    }
+}
+
+void vmprint(pagetable_t page) {
+    printf("Page Table %p:\n", page);
+    printf("Format: [idx] = <virtual> -> <physical> <flags>\n");
+    vmlayerprint(page, 2);
+}
+
