@@ -33,6 +33,7 @@ int releaselock(int);
 int deletelock(int);
 
 void vmprint(void);
+void dmesg(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

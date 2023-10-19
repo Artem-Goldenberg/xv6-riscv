@@ -45,3 +45,4 @@ entry("releaselock");
 entry("deletelock");
 
 entry("vmprint");
+entry("dmesg");

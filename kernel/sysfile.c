@@ -73,6 +73,7 @@ sys_read(void)
   int n;
   uint64 p;
 
+  pr_msg("syscall read");
   argaddr(1, &p);
   argint(2, &n);
   if(argfd(0, 0, &f) < 0)
@@ -87,6 +88,7 @@ sys_write(void)
   int n;
   uint64 p;
   
+  pr_msg("syscall write");
   argaddr(1, &p);
   argint(2, &n);
   if(argfd(0, 0, &f) < 0)
@@ -101,6 +103,7 @@ sys_close(void)
   int fd;
   struct file *f;
 
+  pr_msg("syscall close");
   if(argfd(0, &fd, &f) < 0)
     return -1;
   myproc()->ofile[fd] = 0;
@@ -492,6 +495,7 @@ sys_pipe(void)
   int fd0, fd1;
   struct proc *p = myproc();
 
+  pr_msg("syscall pipe");
   argaddr(0, &fdarray);
   if(pipealloc(&rf, &wf) < 0)
     return -1;
@@ -539,5 +543,10 @@ uint64 sys_deletelock(void) {
 uint64 sys_vmprint(void) {
     struct proc *p = myproc();
     vmprint(p->pagetable);
+    return 0;
+}
+
+uint64 sys_dmesg(void) {
+    dmesg();
     return 0;
 }

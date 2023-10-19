@@ -30,3 +30,4 @@
 #define SYS_deletelock 27
 
 #define SYS_vmprint 28
+#define SYS_dmesg 29

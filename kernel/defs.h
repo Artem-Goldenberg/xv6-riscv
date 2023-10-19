@@ -157,6 +157,11 @@ void            trapinithart(void);
 extern struct spinlock tickslock;
 void            usertrapret(void);
 
+// dmsg.c
+void            initbuf(void);
+void            pr_msg(const char *msg);
+void            dmesg(void);
+
 // uart.c
 void            uartinit(void);
 void            uartintr(void);
