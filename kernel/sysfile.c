@@ -513,3 +513,25 @@ sys_pipe(void)
   }
   return 0;
 }
+
+uint64 sys_createlock(void) {
+    return createlock();
+}
+uint64 sys_acquirelock(void) {
+    int i;
+    argint(0, &i);
+    acquirelock(i);
+    return 0;
+}
+uint64 sys_releaselock(void) {
+    int i;
+    argint(0, &i);
+    releaselock(i);
+    return 0;
+}
+uint64 sys_deletelock(void) {
+    int i;
+    argint(0, &i);
+    deletelock(i);
+    return 0;
+}

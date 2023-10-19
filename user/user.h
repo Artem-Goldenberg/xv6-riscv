@@ -27,6 +27,11 @@ int trace(int what);
 struct sysinfo;
 int sysinfo(struct sysinfo*);
 
+int createlock(void);
+int acquirelock(int);
+int releaselock(int);
+int deletelock(int);
+
 // ulib.c
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);

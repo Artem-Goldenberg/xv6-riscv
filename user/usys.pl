@@ -39,3 +39,7 @@ entry("uptime");
 
 entry("trace");
 entry("sysinfo");
+entry("createlock");
+entry("acquirelock");
+entry("releaselock");
+entry("deletelock");

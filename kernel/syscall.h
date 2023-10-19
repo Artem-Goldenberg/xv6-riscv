@@ -23,3 +23,8 @@
 
 #define SYS_trace  22
 #define SYS_sysinfo  23
+
+#define SYS_createlock 24
+#define SYS_acquirelock 25
+#define SYS_releaselock 26
+#define SYS_deletelock 27

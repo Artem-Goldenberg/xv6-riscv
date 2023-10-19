@@ -81,8 +81,8 @@ kalloc(void)
   return (void*)r;
 }
 
-uint64 freemem(void) {
-    uint64 res = 0;
+int freemem(void) {
+    int res = 0;
     acquire(&kmem.lock);
     struct run *r = kmem.freelist;
     while (r) {

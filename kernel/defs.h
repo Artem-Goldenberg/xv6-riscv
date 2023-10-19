@@ -63,7 +63,7 @@ void            ramdiskrw(struct buf*);
 void*           kalloc(void);
 void            kfree(void *);
 void            kinit(void);
-uint64          freemem(void);
+int          freemem(void);
 
 // log.c
 void            initlog(int, struct superblock*);
@@ -125,6 +125,13 @@ void            acquiresleep(struct sleeplock*);
 void            releasesleep(struct sleeplock*);
 int             holdingsleep(struct sleeplock*);
 void            initsleeplock(struct sleeplock*, char*);
+
+// locks.c
+void initlocks(void);
+int createlock(void);
+void acquirelock(int i);
+void releaselock(int i);
+void deletelock(int i);
 
 // string.c
 int             memcmp(const void*, const void*, uint);

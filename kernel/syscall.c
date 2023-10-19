@@ -104,6 +104,11 @@ extern uint64 sys_close(void);
 extern uint64 sys_trace(void);
 extern uint64 sys_sysinfo(void);
 
+extern uint64 sys_createlock(void);
+extern uint64 sys_acquirelock(void);
+extern uint64 sys_releaselock(void);
+extern uint64 sys_deletelock(void);
+
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
 static uint64 (*syscalls[])(void) = {
@@ -129,7 +134,11 @@ static uint64 (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_trace]   sys_trace,
-[SYS_sysinfo] sys_sysinfo
+[SYS_sysinfo] sys_sysinfo,
+[SYS_createlock] sys_createlock,
+[SYS_acquirelock] sys_acquirelock,
+[SYS_releaselock] sys_releaselock,
+[SYS_deletelock] sys_deletelock
 };
 
 static const char* names[] = {
@@ -155,7 +164,11 @@ static const char* names[] = {
 [SYS_mkdir]   "sys_mkdir",
 [SYS_close]   "sys_close",
 [SYS_trace]   "sys_trace",
-[SYS_sysinfo] "sys_sysinfo"
+[SYS_sysinfo] "sys_sysinfo",
+[SYS_createlock] "sys_createlock",
+[SYS_acquirelock] "sys_acquirelock",
+[SYS_releaselock] "sys_releaselock",
+[SYS_deletelock] "sys_deletelock"
 };
 
 void
